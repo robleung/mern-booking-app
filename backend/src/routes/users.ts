@@ -43,8 +43,7 @@ router.post(
         secure: process.env.NODE_ENV === "production",
         maxAge: 86400000,
       });
-      res.status(200).json({ userId: user._id });
-      return res.sendStatus(200);
+      return res.status(200).send({ message: "User registered OK" });
     } catch (error) {
       res.status(500).send({ message: "Something went wrong" });
     }
