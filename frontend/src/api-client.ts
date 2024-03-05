@@ -35,6 +35,7 @@ export const signIn = async (formData: SignInFormData) => {
   if (!response.ok) {
     throw new Error(body.message);
   }
+  return body;
 };
 
 export const validateToken = async () => {

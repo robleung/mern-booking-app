@@ -48,9 +48,8 @@ router.post(
       const imageUrls = await Promise.all(uploadPromises);
       newHotel.imageUrls = imageUrls;
       newHotel.lastUpdated = new Date();
-      console.log(`Last Updated ======= ${newHotel.lastUpdated}`);
+
       newHotel.userId = req.userId;
-      console.log(`Request ID ======= ${req.userId}`);
 
       const hotel = new Hotel(newHotel);
       await hotel.save();

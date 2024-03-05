@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { check, validationResult } from "express-validator";
 import User from "../models/user";
-import bycrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import verifyToken from "../middleware/auth";
 
@@ -25,7 +25,7 @@ router.post(
       if (!user) {
         return res.status(400).json({ message: "Invalid Credentials" });
       }
-      const isMatch = await bycrypt.compare(password, user.password);
+      const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
         return res.status(400).json({ message: "Invalid Credentials" });
       }
@@ -45,7 +45,7 @@ router.post(
       res.status(200).json({ userId: user._id });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "something went wrong" });
+      res.status(500).json({ message: "Something went wrong" });
     }
   }
 );
