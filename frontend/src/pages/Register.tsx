@@ -71,7 +71,7 @@ const Register = () => {
           type="email"
           className="border rounded w-full py-1 px-2 font-normal"
           {...register("email", { required: "This field is required" })}
-        />{" "}
+        />
         {errors.email && (
           <span className="text-red-500">{errors.email.message}</span>
         )}
@@ -88,7 +88,7 @@ const Register = () => {
               message: "Password must be at least 6 characters",
             },
           })}
-        />{" "}
+        />
         {errors.password && (
           <span className="text-red-500">{errors.password.message}</span>
         )}
@@ -107,7 +107,7 @@ const Register = () => {
               }
             },
           })}
-        />{" "}
+        />
         {errors.confirmPassword && (
           <span className="text-red-500">{errors.confirmPassword.message}</span>
         )}
