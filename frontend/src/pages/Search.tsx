@@ -3,6 +3,8 @@ import { useSearchContext } from "../contexts/SearchContext";
 import * as apiClient from "../api-client";
 import { useState } from "react";
 import SearchResultsCard from "../components/SearchResultsCard";
+import Pagination from "../components/Pagination";
+import { set } from "react-hook-form";
 
 const Search = () => {
   const search = useSearchContext();
@@ -38,6 +40,13 @@ const Search = () => {
         {hotelData?.data.map((hotel) => (
           <SearchResultsCard hotel={hotel}></SearchResultsCard>
         ))}
+        <div>
+          <Pagination
+            page={hotelData?.pagination.page || 1}
+            pages={hotelData?.pagination.pages || 1}
+            onPageChange={(page) => setPage(page)}
+          ></Pagination>
+        </div>
       </div>
     </div>
   );
